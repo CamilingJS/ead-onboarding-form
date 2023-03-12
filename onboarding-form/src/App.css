@@ -1,7 +1,33 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
   padding: 0;
   text-align: center;
-  border: 3px solid fuchsia;
+  --font-base: 'Inter', sans-serif;
+  --primary-color: #0C92D1;
+  --secondary-color: #69A851;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #6b7688;
+  --brown-color: #623e21;
+  --white-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+main{
+  background-color: #0C92D1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media screen and (min-width: 1110px){
+  main{
+    flex-direction: row;
+  }
 }
