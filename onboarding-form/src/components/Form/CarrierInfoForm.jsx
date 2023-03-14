@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function CarrierInfoForm({page}){
+export default function CarrierInfoForm({page, company}){
     const [benefitCategory, setBenefitCategory] = useState("")
     const [carrier, setCarrier] = useState("")
   
@@ -63,18 +63,20 @@ export default function CarrierInfoForm({page}){
                 <label className="checkbox" ><input type="radio" name="bill-type" value="No"/><span>No</span></label>
             </div>
             <div className="inputSection" >
-                <p>Carrier Account Manager/Contact Name</p>
+                <p>{carrier? carrier:'Carrier' } Account Manager/Contact Name</p>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Email' required/>
             </div>
             <div className="inputSection" >
-                <p>Carrier Contact Email</p>
-                <input maxLength="120" autoComplete="off" type="email" name="carrier-contact-email" placeholder='First Name' required/>
+                <p>{company? company:'Company' } Primary Contact</p>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Title' required/>
             </div>
-            <div className="inputSection" >
-                <p>Anything else to add?</p>
-                <input maxLength="120" autoComplete="off" type="text" name="carrier-notes" placeholder='Notes' required/>
-            </div>
+            
+
+    
 
             <div className="inputSection" >
                 <p>Carrier Rates</p>

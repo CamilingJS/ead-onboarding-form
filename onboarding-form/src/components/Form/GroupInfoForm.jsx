@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Form.scss'
 
-export default function GroupInfoForm(){
+export default function GroupInfoForm({company, setCompany}){
   
   return (
     <form name="group-information" method="POST" data-netlify="true">
@@ -10,7 +10,10 @@ export default function GroupInfoForm(){
        <div className="inputContainer" >
         <div className="inputSection" >
           <p>Company Name</p>
-          <input maxLength="120" autoComplete="off" type="text" name="company-name" required/>
+          <input 
+            onChange={(e)=>setCompany(e.target.value)} 
+            maxLength="120" autoComplete="off" type="text" name="company-name" required/>
+           
         </div>
         <div className="inputSection" >
           <p>Company Website</p>
