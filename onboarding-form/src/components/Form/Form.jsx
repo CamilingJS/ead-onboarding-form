@@ -38,7 +38,7 @@ export const Form = () => {
               <h4>Click "Next" to continue and add more carriers. </h4>  
               <p>If you are finished listing carriers, select the box below to be taken to the last page and submit your responses.</p>
               <h4>Finished?</h4>
-              <label className="checkbox" ><input type="checkbox" name="bill-type" value="List Bill"/><span>I'm done, take me ot the end of the form</span></label>
+              <label className="isFinishedCheckbox" ><input type="checkbox" name="isFinished"/><span>I'm done, take me ot the end of the form</span></label>
               </div>
               : <div></div>}
             

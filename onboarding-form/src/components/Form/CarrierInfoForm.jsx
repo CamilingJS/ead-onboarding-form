@@ -2,10 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 
 export default function CarrierInfoForm({page, company}){
-    const [benefitCategory, setBenefitCategory] = useState("")
+   
     const [carrier, setCarrier] = useState("")
-  
-    console.log(benefitCategory)
+
 
     const selectHandler = function(){
         
@@ -66,18 +65,15 @@ export default function CarrierInfoForm({page, company}){
                 <p>{carrier? carrier:'Carrier' } Account Manager/Contact Name</p>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
-                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Email' required/>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-email" placeholder='Email' required/>
             </div>
             <div className="inputSection" >
                 <p>{company? company:'Company' } Primary Contact</p>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
                 <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
-                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Title' required/>
+                <input maxLength="120" autoComplete="off" type="text" name="carrier-contact-title" placeholder='Title' required/>
             </div>
-            
-
-    
-
+        
             <div className="inputSection" >
                 <p>Carrier Rates</p>
                 <input type="file" id="myFile" name="filename"></input>
