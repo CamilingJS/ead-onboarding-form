@@ -1,26 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function CarrierInfoForm({page, companyData, carrierData, setCarrierData}){
+export default function CarrierInfoForm({page, companyData, carrierObj, setCarrierObj}){
    
-    const [carrierObj, setCarrierObj] = useState({
-        carrierName: "",
-        carrierPolicyNumber:"",
-        benefitCategory:"",
-        numberOfBills:0,
-        billTypes:"",
-        selfInsuredFunded:"",
-        eadPaysCarrier:"",
-        carrierContactFName:"",
-        carrierContactLName:"",
-        carrierContactEmail:"",
-        companyPrimeContactFName:"",
-        companyPrimeContactLName:"",
-        companyPrimeContactTitle:"",
-        carrierRates: null,
-    })
-
-
     const selectHandler = function(){
         console.log("hello")
     }
