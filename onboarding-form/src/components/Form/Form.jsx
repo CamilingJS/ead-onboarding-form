@@ -5,10 +5,9 @@ import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
 import './Form.scss'
 
-export const Form = () => {
+export const Form = ({companyData, setCompanyData, carrierData, setCarrierData}) => {
 
   const [page, setPage] = useState(0)
-  const [company, setCompany] = useState("")
   
   const nextBtnHandler = function(){
     setPage(page+1)
@@ -21,12 +20,14 @@ export const Form = () => {
         <main>
           {page==0 ? 
             <GroupInfoForm 
-              company={company} 
-              setCompany={setCompany} 
+              companyData={companyData}
+              setCompanyData={setCompanyData}
             /> : 
             <CarrierInfoForm 
               page={page}
-              company={company}
+              companyData={companyData}
+              carrierData={carrierData}
+              setCarrierData={setCarrierData}
             />
           }
           
