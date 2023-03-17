@@ -1,18 +1,33 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function CarrierInfoForm({page, companyData, carrierObj, setCarrierObj}){
-   
-    const selectHandler = function(){
-        console.log("hello")
-    }
+export default function CarrierInfoForm({companyData, carrierCount}){
 
+    const [carrierObj, setCarrierObj] = useState({
+        carrierName: "",
+        carrierPolicyNumber:"",
+        benefitCategory:"",
+        numberOfBills:0,
+        billTypes:"",
+        selfInsuredFunded:"",
+        eadPaysCarrier:"",
+        carrierContactFName:"",
+        carrierContactLName:"",
+        carrierContactEmail:"",
+        companyPrimeContactFName:"",
+        companyPrimeContactLName:"",
+        companyPrimeContactTitle:"",
+        carrierRates: null,
+    })
+
+
+   
   return (
-    <form name="carrier-information" method="POST" data-netlify="true">
+    <form className={"form "+carrierCount} name="carrier-information" method="POST" data-netlify="true">
         <h2>Carrier/Plan Information</h2> 
         <div className="inputContainer" >
             <div className="inputSection" >
-                <p>Carrier {page}</p>
+                <p>Carrier {carrierCount+1}</p>
                 <input 
                     onChange={(e)=>setCarrierObj({...carrierObj, carrierName: e.target.value})}  
                     value={carrierObj.carrierName} maxLength="120" 

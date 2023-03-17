@@ -8,54 +8,12 @@ import './Form.scss'
 export const Form = ({companyData, setCompanyData, carrierData, setCarrierData}) => {
 
   const [page, setPage] = useState(0)
+  const [carrierCount, setCarrierCount] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
-
-  const [carrierObj, setCarrierObj] = useState({
-    carrierName: "",
-    carrierPolicyNumber:"",
-    benefitCategory:"",
-    numberOfBills:0,
-    billTypes:"",
-    selfInsuredFunded:"",
-    eadPaysCarrier:"",
-    carrierContactFName:"",
-    carrierContactLName:"",
-    carrierContactEmail:"",
-    companyPrimeContactFName:"",
-    companyPrimeContactLName:"",
-    companyPrimeContactTitle:"",
-    carrierRates: null,
-})
   
   const nextBtnHandler = function(){ 
-    {page>0 ?
-      alert('Helloe') &&
-      setCarrierObj({
-        carrierName: "",
-        carrierPolicyNumber:"",
-        benefitCategory:"",
-        numberOfBills:0,
-        billTypes:"",
-        selfInsuredFunded:"",
-        eadPaysCarrier:"",
-        carrierContactFName:"",
-        carrierContactLName:"",
-        carrierContactEmail:"",
-        companyPrimeContactFName:"",
-        companyPrimeContactLName:"",
-        companyPrimeContactTitle:"",
-        carrierRates: null,
-      }
-      )
-      
-      :
-      alert(companyData.companyName)
-      setPage(page+1)
-
-    }
-    
-    
-    
+      setCarrierCount(carrierCount + 1)    
+      setPage(page + 1) 
   }
 
   const isFinishedHandler = function(){
@@ -72,20 +30,21 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
               companyData={companyData}
               setCompanyData={setCompanyData}
             /> : 
-            <CarrierInfoForm 
+            Array.from({length: carrierCount}, (_, carrierCount) =>(
+              <CarrierInfoForm 
               page={page}
+              carrierCount={carrierCount}
               companyData={companyData}
               carrierData={carrierData}
               setCarrierData={setCarrierData}
-              carrierObj={carrierObj}
-              setCarrierObj={setCarrierObj}
+             
             />
+            ))
+            
           }
           
           <div className='bottomNavigation' >
-
             {page>0 ?
-              
               <div className="finishOption" >
               <h4>Click "Next" to continue and add more carriers. </h4>  
               <p>If you are finished listing carriers, select the box below to be taken to the last page and submit your responses.</p>
