@@ -27,14 +27,31 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
     carrierRates: null,
 })
   
-  const nextBtnHandler = function(){
-    
-    {
-      page>0 ?
-      setCarrierData(carrierData.push(carrierObj)):
+  const nextBtnHandler = function(){ 
+    {page>0 ?
+      alert('Helloe') &&
+      setCarrierObj({
+        carrierName: "",
+        carrierPolicyNumber:"",
+        benefitCategory:"",
+        numberOfBills:0,
+        billTypes:"",
+        selfInsuredFunded:"",
+        eadPaysCarrier:"",
+        carrierContactFName:"",
+        carrierContactLName:"",
+        carrierContactEmail:"",
+        companyPrimeContactFName:"",
+        companyPrimeContactLName:"",
+        companyPrimeContactTitle:"",
+        carrierRates: null,
+      }
+      )
+      
+      :
       alert(companyData.companyName)
       setPage(page+1)
-      
+
     }
     
     
@@ -84,10 +101,10 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
             
 
             <div className="prevNextBtnContainer" >
-              { page>0 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
+              { page==1 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
 
               {isFinished ?
-                <button onClick={nextBtnHandler} >Finish/Submit</button> :
+                <button onClick={isFinishedHandler} >Finish/Submit</button> :
                 <button onClick={nextBtnHandler} >Next</button>
              }
               
