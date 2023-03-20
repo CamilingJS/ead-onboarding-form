@@ -12,13 +12,23 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
   const [isFinished, setIsFinished] = useState(false)
   
   const nextBtnHandler = function(){ 
-      setCarrierCount(carrierCount + 1)    
       setPage(page + 1) 
+      setCarrierCount(carrierCount + 1)
   }
 
   const isFinishedHandler = function(){
     alert(companyData)
   }
+
+  let carrierComponents = Array.from({length: carrierCount}, (_, i) =>(
+    <CarrierInfoForm 
+      page={page}
+      carrierCount={carrierCount}
+      companyData={companyData}
+      carrierData={carrierData}
+      setCarrierData={setCarrierData}
+    />
+  ) ) 
 
   return (
     <section className='form-container' >
@@ -27,20 +37,15 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
         <main>
           {page==0 ? 
             <GroupInfoForm 
+              page={page}
               companyData={companyData}
               setCompanyData={setCompanyData}
             /> : 
-            Array.from({length: carrierCount}, (_, carrierCount) =>(
-              <CarrierInfoForm 
-              page={page}
-              carrierCount={carrierCount}
-              companyData={companyData}
-              carrierData={carrierData}
-              setCarrierData={setCarrierData}
-             
-            />
-            ))
-            
+            (carrierCount == carrierComponents.length? 
+              carrierComponents :
+              <div></div>  
+            )
+           
           }
           
           <div className='bottomNavigation' >
@@ -54,13 +59,13 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
                 onChange={(e)=>setIsFinished(!isFinished)}
                 value={isFinished}
                 type="checkbox" name="isFinished"/>
-                <span>I'm done, take me ot the end of the form</span></label>
+                <span>I'm done, take me to the end of the form</span></label>
               </div>
               : <div></div>}
             
 
             <div className="prevNextBtnContainer" >
-              { page==1 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
+              { page>0 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
 
               {isFinished ?
                 <button onClick={isFinishedHandler} >Finish/Submit</button> :
