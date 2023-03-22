@@ -1,7 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { formContext } from '../../contexts/formContext'
 
-export default function CarrierInfoForm({companyData, carrierCount}){
+export default function CarrierInfoForm({carrierCount}){
+
+    const {companyData} = useContext(formContext)
 
     const [carrierObj, setCarrierObj] = useState({
         carrierName: "",

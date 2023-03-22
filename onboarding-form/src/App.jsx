@@ -1,9 +1,9 @@
-
 import './App.css'
 import { LeftPane } from './components/LeftPane/LeftPane'
 import { Form } from './components/Form/Form'
 import Navbar from './components/Navbar/Navbar'
 import { useState } from 'react'
+import {formContext} from './Contexts/formContext'
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
   const [carrierData, setCarrierData] = useState({})
 
   return (
+    <formContext.Provider value={{companyData, setCompanyData}} >
     <div className="App">
       <nav>
         <Navbar />
@@ -32,14 +33,13 @@ function App() {
       <main>
         <LeftPane />
         <Form 
-          companyData={companyData} 
-          setCompanyData={setCompanyData}
           carrierData={carrierData} 
           setCarrierData={setCarrierData}
           />
       </main>
       
     </div>
+    </formContext.Provider>
   )
 }
 

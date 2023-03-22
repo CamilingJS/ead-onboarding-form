@@ -1,11 +1,14 @@
 import React from 'react'
-import {useState, useEffect} from "react"
+import {useState, useContext} from "react"
+import { formContext } from '../../contexts/formContext'
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
 import './Form.scss'
 
-export const Form = ({companyData, setCompanyData, carrierData, setCarrierData}) => {
+export const Form = ({carrierData, setCarrierData}) => {
+
+  const {companyData, setCompanyData} = useContext(formContext)
 
   const [page, setPage] = useState(0)
   const [carrierCount, setCarrierCount] = useState(0)
