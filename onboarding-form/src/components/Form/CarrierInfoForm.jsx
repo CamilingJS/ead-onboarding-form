@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function CarrierInfoForm({companyData, carrierCount, page}){
+export default function CarrierInfoForm({companyData, carrierCount}){
 
     const [carrierObj, setCarrierObj] = useState({
         carrierName: "",
@@ -23,11 +23,11 @@ export default function CarrierInfoForm({companyData, carrierCount, page}){
 
    
   return (
-    <form className={"form "+carrierCount} name="carrier-information" method="POST" data-netlify="true">
+    <form key={carrierCount} name="carrier-information" method="POST" data-netlify="true">
         <h2>Carrier/Plan Information</h2> 
         <div className="inputContainer" >
             <div className="inputSection" >
-                <p>Carrier {carrierCount==page? carrierCount: ''}</p>
+                <p>Carrier</p>
                 <input 
                     onChange={(e)=>setCarrierObj({...carrierObj, carrierName: e.target.value})}  
                     value={carrierObj.carrierName} maxLength="120" 

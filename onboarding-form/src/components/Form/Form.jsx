@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
@@ -11,9 +11,14 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
   const [carrierCount, setCarrierCount] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   
+  
+  const prevBtnHandler = function (){
+    setCarrierCount(carrierCount-1)
+  }
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
       setCarrierCount(carrierCount + 1)
+      
   }
 
   const isFinishedHandler = function(){
@@ -28,7 +33,10 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
       carrierData={carrierData}
       setCarrierData={setCarrierData}
     />
-  ) ) 
+  ) )   
+  
+  console.log(carrierComponents)
+  
 
   return (
     <section className='form-container' >
@@ -41,15 +49,14 @@ export const Form = ({companyData, setCompanyData, carrierData, setCarrierData})
               companyData={companyData}
               setCompanyData={setCompanyData}
             /> : 
-            (carrierCount == carrierComponents.length? 
-              carrierComponents :
-              <div></div>  
-            )
+            carrierComponents
+        
+            
            
           }
           
           <div className='bottomNavigation' >
-            {page>0 ?
+            {page ?
               <div className="finishOption" >
               <h4>Click "Next" to continue and add more carriers. </h4>  
               <p>If you are finished listing carriers, select the box below to be taken to the last page and submit your responses.</p>
