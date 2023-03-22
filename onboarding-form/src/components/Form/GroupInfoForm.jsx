@@ -1,13 +1,12 @@
 import React from 'react'
-import { useState, useContext } from 'react'
-import { formContext } from '../../contexts/formContext'
+import { useContext } from 'react'
+import { FormContext } from '../../Contexts/FormContext'
 
 import './Form.scss'
 
 export default function GroupInfoForm(){
 
-  const {companyData, setCompanyData} = useContext(formContext)
-
+  const {companyData, setCompanyData} =useContext(FormContext)
   
   return (
     <form name="group-information" method="POST" data-netlify="true">

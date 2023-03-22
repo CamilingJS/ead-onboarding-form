@@ -1,14 +1,14 @@
 import React from 'react'
 import {useState, useContext} from "react"
-import { formContext } from '../../contexts/formContext'
+import { FormContext } from '../../Contexts/FormContext'
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
 import './Form.scss'
 
-export const Form = ({carrierData, setCarrierData}) => {
+export const Form = () => {
 
-  const {companyData, setCompanyData} = useContext(formContext)
+  const {companyData, setCompanyData, carrierData, setCarrierData} = useContext(FormContext)
 
   const [page, setPage] = useState(0)
   const [carrierCount, setCarrierCount] = useState(0)
@@ -32,9 +32,9 @@ export const Form = ({carrierData, setCarrierData}) => {
     <CarrierInfoForm 
       page={page}
       carrierCount={carrierCount}
-      companyData={companyData}
       carrierData={carrierData}
       setCarrierData={setCarrierData}
+     
     />
   ) )   
   
@@ -49,13 +49,8 @@ export const Form = ({carrierData, setCarrierData}) => {
           {page==0 ? 
             <GroupInfoForm 
               page={page}
-              companyData={companyData}
-              setCompanyData={setCompanyData}
             /> : 
             carrierComponents
-        
-            
-           
           }
           
           <div className='bottomNavigation' >

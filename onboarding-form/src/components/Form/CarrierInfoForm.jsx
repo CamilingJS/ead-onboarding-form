@@ -1,28 +1,11 @@
 import React from 'react'
-import { useState, useContext } from 'react'
-import { formContext } from '../../contexts/formContext'
+import { useContext } from 'react'
+import { FormContext } from '../../Contexts/FormContext'
+
 
 export default function CarrierInfoForm({carrierCount}){
 
-    const {companyData} = useContext(formContext)
-
-    const [carrierObj, setCarrierObj] = useState({
-        carrierName: "",
-        carrierPolicyNumber:"",
-        benefitCategory:"",
-        numberOfBills:0,
-        billTypes:"",
-        selfInsuredFunded:"",
-        eadPaysCarrier:"",
-        carrierContactFName:"",
-        carrierContactLName:"",
-        carrierContactEmail:"",
-        companyPrimeContactFName:"",
-        companyPrimeContactLName:"",
-        companyPrimeContactTitle:"",
-        carrierRates: null,
-    })
-
+const {carrierObj, setCarrierObj, companyData} = useContext(FormContext)
 
    
   return (
@@ -126,7 +109,8 @@ export default function CarrierInfoForm({carrierCount}){
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-email" placeholder='Email' required/>
             </div>
             <div className="inputSection" >
-                <p>{companyData.companyName? companyData.companyName:'Company' } Primary Contact</p>
+                {companyData.companyName ? <p>{companyData.companyName} Contact</p> : <p> Primary Contact</p>}
+            
                 <input
                 onChange={(e)=>setCarrierObj({...carrierObj, companyPrimeContactFName: e.target.value})}
                 value={carrierObj.companyPrimeContactFName}

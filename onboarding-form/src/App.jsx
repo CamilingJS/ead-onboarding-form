@@ -3,7 +3,7 @@ import { LeftPane } from './components/LeftPane/LeftPane'
 import { Form } from './components/Form/Form'
 import Navbar from './components/Navbar/Navbar'
 import { useState } from 'react'
-import {formContext} from './Contexts/formContext'
+import { FormContext } from './Contexts/FormContext'
 
 function App() {
 
@@ -22,24 +22,41 @@ function App() {
     contactPhone:""
   })
 
+  const [carrierObj, setCarrierObj] = useState({
+    carrierName: "",
+    carrierPolicyNumber:"",
+    benefitCategory:"",
+    numberOfBills:0,
+    billTypes:"",
+    selfInsuredFunded:"",
+    eadPaysCarrier:"",
+    carrierContactFName:"",
+    carrierContactLName:"",
+    carrierContactEmail:"",
+    companyPrimeContactFName:"",
+    companyPrimeContactLName:"",
+    companyPrimeContactTitle:"",
+    carrierRates: null,
+})
+
+
   const [carrierData, setCarrierData] = useState({})
 
   return (
-    <formContext.Provider value={{companyData, setCompanyData}} >
-    <div className="App">
+    <FormContext.Provider value={{companyData, setCompanyData, carrierObj, setCarrierObj, carrierData, setCarrierData}} >
+      <div className="App">
       <nav>
         <Navbar />
       </nav>
       <main>
         <LeftPane />
-        <Form 
-          carrierData={carrierData} 
-          setCarrierData={setCarrierData}
-          />
+        <Form />
       </main>
       
     </div>
-    </formContext.Provider>
+    </FormContext.Provider>
+    
+   
   )
 }
 
