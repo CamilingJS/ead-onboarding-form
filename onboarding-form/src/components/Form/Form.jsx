@@ -6,7 +6,7 @@ import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
 import './Form.scss'
 
-export const Form = () => {
+const Form = () => {
 
   const {companyData, setCompanyData, carrierData, setCarrierData} = useContext(FormContext)
 
@@ -89,3 +89,6 @@ export const Form = () => {
     </section>
   )
 }
+
+
+export default Form

@@ -1,9 +1,10 @@
 import './App.css'
-import { LeftPane } from './components/LeftPane/LeftPane'
-import { Form } from './components/Form/Form'
-import Navbar from './components/Navbar/Navbar'
+import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react'
 import { FormContext } from './Contexts/FormContext'
+
+import LandingPage from './views/LandingPage'
+import Navbar from './components/Navbar/Navbar'; 
 
 function App() {
 
@@ -42,22 +43,21 @@ function App() {
 
   const [carrierData, setCarrierData] = useState({})
 
-  return (
-    <FormContext.Provider value={{companyData, setCompanyData, carrierObj, setCarrierObj, carrierData, setCarrierData}} >
-      <div className="App">
-      <nav>
-        <Navbar />
-      </nav>
-      <main>
-        <LeftPane />
-        <Form />
-      </main>
+return (
+<FormContext.Provider value={{companyData, setCompanyData, carrierObj, setCarrierObj, carrierData, setCarrierData}} >
+  <div className="App">
+  <Routes>
+    <Route path='/'
+      element={
+        <LandingPage />
+      }
       
-    </div>
-    </FormContext.Provider>
-    
-   
-  )
+    />
+  </Routes>
+     
+  </div>
+</FormContext.Provider>
+)
 }
 
 export default App

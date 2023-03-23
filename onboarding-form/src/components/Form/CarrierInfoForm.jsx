@@ -2,13 +2,10 @@ import React from 'react'
 import { useContext } from 'react'
 import { FormContext } from '../../Contexts/FormContext'
 
-
-export default function CarrierInfoForm({carrierCount}){
-
+function CarrierInfoForm({carrierCount}){
 const {carrierObj, setCarrierObj, companyData} = useContext(FormContext)
-
    
-  return (
+return (
     <form key={carrierCount} name="carrier-information" method="POST" data-netlify="true">
         <h2>Carrier/Plan Information</h2> 
         <div className="inputContainer" >
@@ -137,3 +134,6 @@ const {carrierObj, setCarrierObj, companyData} = useContext(FormContext)
     </form>
   )
 }
+
+
+export default CarrierInfoForm

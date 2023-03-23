@@ -2,7 +2,7 @@ import React from 'react'
 
 import './LeftPane.scss'
 
-export const LeftPane = () => {
+const LeftPane = () => {
   return (
     <aside className='left-pane' >
 
@@ -24,3 +24,5 @@ export const LeftPane = () => {
     </aside>
   )
 }
+
+export default LeftPane
