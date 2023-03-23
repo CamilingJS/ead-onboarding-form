@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { FormContext } from './Contexts/FormContext'
 
 import LandingPage from './views/LandingPage'
-import Navbar from './components/Navbar/Navbar'; 
+import Summary from './views/Summary'
 
 function App() {
 
@@ -52,6 +52,11 @@ return (
         <LandingPage />
       }
       
+    />
+    <Route path='/summary'
+      element={
+        <Summary />
+      }
     />
   </Routes>
      

@@ -73,7 +73,7 @@ const Form = () => {
               { page>0 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
 
               {isFinished ?
-                <button onClick={isFinishedHandler} >Finish/Submit</button> :
+                <button onClick={isFinishedHandler} >Finish/Review</button> :
                 <button onClick={nextBtnHandler} >Next</button>
              }
               
