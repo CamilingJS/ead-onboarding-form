@@ -6,17 +6,18 @@ import './Summary.scss'
 
 
 const Summary = () => {
-const {companyData, carrierObj, carrierData} = useContext(FormContext)
+  const {companyData, carrierObj} =useContext(FormContext)
 
   return (
     <div className='Summary' >
-        {Object.keys(companyData).map(keys=>
-            <h5>{keys}</h5>)}
+      <h1>Summary</h1>
+        {Object.entries(companyData).map(val => val)}
         
-        {Object.values(companyData).map(val => 
-            <h5>{val}</h5>)}
+        {/* {console.log(Object.entries(carrierObj))} */}
 
-        
+          <h1>{companyData.companyName}</h1>
+          {/* {console.log(companyData.companyName)} */}
+          <h1>{carrierObj.carrierName}</h1>
 
     </div>
   )

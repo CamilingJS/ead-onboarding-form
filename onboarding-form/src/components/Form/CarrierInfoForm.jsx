@@ -47,8 +47,8 @@ return (
                 <p>Number of Invoices/Bills</p>
                 <input 
                     onChange={(e)=>setCarrierObj({...carrierObj, numberOfBills: e.target.value})}
-                    value={carrierObj.carrierPolicyNumber}
-                    maxLength="120" autoComplete="off" type="number" name="number-of-bills" required/>
+                    value={carrierObj.numberOfBills}
+                    minLength="1" maxLength="20" autoComplete="off" type="number" id="number-of-bills" name="number-of-bills" required/>
             </div>
             <div className="inputSection" >
                 <p>Bill Types: Select all that apply</p>

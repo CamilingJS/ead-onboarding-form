@@ -19,6 +19,7 @@ export default function GroupInfoForm(){
             value={companyData.companyName} 
             maxLength="120" autoComplete="off" type="text" name="company-name" required/>
         </div>
+        
         <div className="inputSection" >
           <p>Company Website</p>
           <input

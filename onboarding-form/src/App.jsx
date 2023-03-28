@@ -24,10 +24,11 @@ function App() {
   })
 
   const [carrierObj, setCarrierObj] = useState({
+    carrierNum: 0, 
     carrierName: "",
     carrierPolicyNumber:"",
     benefitCategory:"",
-    numberOfBills:0,
+    numberOfBills: 0,
     billTypes:"",
     selfInsuredFunded:"",
     eadPaysCarrier:"",

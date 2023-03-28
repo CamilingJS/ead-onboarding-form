@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useContext} from "react"
 import { FormContext } from '../../Contexts/FormContext'
+import { Link } from 'react-router-dom'
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
@@ -8,7 +9,7 @@ import './Form.scss'
 
 const Form = () => {
 
-  const {companyData, setCompanyData, carrierData, setCarrierData} = useContext(FormContext)
+  const {carrierData, setCarrierData, carrierObj, setCarrierObj} = useContext(FormContext)
 
   const [page, setPage] = useState(0)
   const [carrierCount, setCarrierCount] = useState(0)
@@ -20,12 +21,17 @@ const Form = () => {
   }
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
-      setCarrierCount(carrierCount + 1)
-      
-  }
+      setCarrierCount(carrierCount + 1)     
+      setCarrierData({...carrierObj, }) 
 
+      console.log(Object.entries(carrierData))
+  
+  }
+ 
   const isFinishedHandler = function(){
-    alert(companyData)
+    
+    console.log("hello from finished handler")
+  
   }
 
   let carrierComponents = Array.from({length: carrierCount}, (_, i) =>(
@@ -37,9 +43,6 @@ const Form = () => {
      
     />
   ) )   
-  
-  console.log(carrierComponents)
-  
 
   return (
     <section className='form-container' >
@@ -73,7 +76,10 @@ const Form = () => {
               { page>0 ? <button onClick={()=>setPage(page-1)} >Previous</button> : <div></div> }
 
               {isFinished ?
-                <button onClick={isFinishedHandler} >Finish/Review</button> :
+                <Link to='/summary' >
+                  <button onClick={isFinishedHandler} >Finish/Review</button>
+                </Link>
+                 :
                 <button onClick={nextBtnHandler} >Next</button>
              }
               
