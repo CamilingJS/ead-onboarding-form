@@ -9,7 +9,7 @@ import './Form.scss'
 
 const Form = () => {
 
-  const {carrierData, setCarrierData, carrierObj, setCarrierObj} = useContext(FormContext)
+  const {carrierData, setCarrierData} = useContext(FormContext)
 
   const [page, setPage] = useState(0)
   const [carrierCount, setCarrierCount] = useState(0)
@@ -21,10 +21,11 @@ const Form = () => {
   }
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
-      setCarrierCount(carrierCount + 1)     
-      setCarrierData({...carrierObj, }) 
-
-      console.log(Object.entries(carrierData))
+      setCarrierCount(carrierCount + 1)   
+      const data = Object.entries(carrierData)  
+      // setCarrierData({...carrierData, carrierNum:2}) 
+      console.log(carrierData[carrierCount])
+      console.log(carrierData.length)
   
   }
  
@@ -34,11 +35,11 @@ const Form = () => {
   
   }
 
-  let carrierComponents = Array.from({length: carrierCount}, (_, i) =>(
+  let carrierComponents = carrierData.map( (carrier, index) =>(
     <CarrierInfoForm 
       page={page}
       carrierCount={carrierCount}
-      carrierData={carrierData}
+      carrier={carrier}
       setCarrierData={setCarrierData}
      
     />

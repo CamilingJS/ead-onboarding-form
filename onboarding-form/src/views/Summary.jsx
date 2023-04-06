@@ -17,7 +17,7 @@ const Summary = () => {
 
           <h1>{companyData.companyName}</h1>
           {/* {console.log(companyData.companyName)} */}
-          <h1>{carrierObj.carrierName}</h1>
+          {/* <h1>{carrierObj.carrierName}</h1> */}
 
     </div>
   )

@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { FormContext } from '../../Contexts/FormContext'
 
 function CarrierInfoForm({carrierCount}){
-const {carrierObj, setCarrierObj, companyData} = useContext(FormContext)
+const {carrierData, setCarrierData, companyData} = useContext(FormContext)
    
 return (
     <form key={carrierCount} name="carrier-information" method="POST" data-netlify="true">
@@ -12,8 +12,9 @@ return (
             <div className="inputSection" >
                 <p>Carrier</p>
                 <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, carrierName: e.target.value})}  
-                    value={carrierObj.carrierName} maxLength="120" 
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierName: e.target.value})}  
+                    value={carrierData[carrierCount].carrierObj.carrierName}
+                    maxLength="120" 
                     autoComplete="off" 
                     type="text" 
                     name="company-name" 
@@ -22,8 +23,8 @@ return (
             <div className="inputSection" >
                 <p>Benefit Category</p>
                 <select 
-                    onChange={(e)=>setCarrierObj({...carrierObj, benefitCategory: e.target.value})} 
-                    value={carrierObj.benefitCategory}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, benefitCategory: e.target.value})} 
+                    value={carrierData[carrierCount].carrierObj.benefitCategory}
                     name="benefit-category" id="benefit-category">
                     <option value="">--Select Benefit--</option>
                     <option value="Medical">Medical</option>
@@ -36,18 +37,18 @@ return (
             </div>
             <div className="inputSection" >
                 <p>
-                    {carrierObj.carrierName? `${carrierObj.carrierName} `:''}
+                    {carrierData[carrierCount].carrierObj.carrierName? `${carrierData[carrierCount].carrierObj.carrierName} `:''}
                     Policy/Group Number</p>
                 <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, carrierPolicyNumber: e.target.value})}
-                    value={carrierObj.carrierPolicyNumber}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierPolicyNumber: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.carrierPolicyNumber}
                     maxLength="120" autoComplete="off" type="text" name="policy-number" required/>
             </div>
             <div className="inputSection" >
                 <p>Number of Invoices/Bills</p>
                 <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, numberOfBills: e.target.value})}
-                    value={carrierObj.numberOfBills}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, numberOfBills: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.numberOfBills}
                     minLength="1" maxLength="20" autoComplete="off" type="number" id="number-of-bills" name="number-of-bills" required/>
             </div>
             <div className="inputSection" >
@@ -63,15 +64,15 @@ return (
                 <p>Are these coverages self-insured/self-funded</p>
                 <label className="checkbox" >
                     <input
-                    onChange={(e)=>setCarrierObj({...carrierObj, selfInsuredFunded: e.target.value})}
-                    value={carrierObj.selfInsuredFunded}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, selfInsuredFunded: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.selfInsuredFunded}
                     type="radio" name="selfInsuredFunded" 
                     /><span>Yes</span>
                 </label>
                 <label className="checkbox" >
                     <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, selfInsuredFunded: e.target.value})}
-                    value={carrierObj.selfInsuredFunded}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, selfInsuredFunded: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.selfInsuredFunded}
                     type="radio" name="selfInsuredFunded" 
                     
                     /><span>No</span>
@@ -81,51 +82,51 @@ return (
                 <p>Will EAD pay this carrier?</p>
                 <label className="checkbox" >
                     <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, eadPaysCarrier: e.target.value})}
-                    value={carrierObj.eadPaysCarrier}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, eadPaysCarrier: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.eadPaysCarrier}
                     type="radio" name="bill-type"/><span>Yes</span></label>
                 <label className="checkbox" >
                     <input 
-                    onChange={(e)=>setCarrierObj({...carrierObj, eadPaysCarrier: e.target.value})}
-                    value={carrierObj.eadPaysCarrier}
+                    onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, eadPaysCarrier: e.target.value})}
+                    value={carrierData[carrierCount].carrierObj.eadPaysCarrier}
                     type="radio" name="bill-type"/><span>No</span></label>
             </div>
             <div className="inputSection" >
-                <p>{carrierObj.carrierName? `${carrierObj.carrierName} `:'Carrier' } Account Manager/Contact Name</p>
+                <p>{carrierData[carrierCount].carrierObj.carrierName? `${carrierData[carrierCount].carrierObj.carrierName} `:'Carrier' } Account Manager/Contact Name</p>
                 <input
-                onChange={(e)=>setCarrierObj({...carrierObj, carrierContactFName: e.target.value})}
-                value={carrierObj.carrierContactFName}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierContactFName: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.carrierContactFName}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
                 <input 
-                onChange={(e)=>setCarrierObj({...carrierObj, carrierContactLName: e.target.value})}
-                value={carrierObj.carrierContactLName}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierContactLName: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.carrierContactLName}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
                 <input
-                onChange={(e)=>setCarrierObj({...carrierObj, carrierContactEmail: e.target.value})}
-                value={carrierObj.carrierContactEmail}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierContactEmail: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.carrierContactEmail}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-email" placeholder='Email' required/>
             </div>
             <div className="inputSection" >
-                {companyData.companyName ? <p>{companyData.companyName} Contact</p> : <p> Primary Contact</p>}
+                {carrierData[carrierCount].carrierObj.companyName ? <p>{carrierData[carrierCount].carrierObj.companyName} Contact</p> : <p> Primary Contact</p>}
             
                 <input
-                onChange={(e)=>setCarrierObj({...carrierObj, companyPrimeContactFName: e.target.value})}
-                value={carrierObj.companyPrimeContactFName}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, companyPrimeContactFName: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.companyPrimeContactFName}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-fname" placeholder='First Name' required/>
                 <input
-                onChange={(e)=>setCarrierObj({...carrierObj, companyPrimeContactLName: e.target.value})}
-                value={carrierObj.companyPrimeContactLName}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, companyPrimeContactLName: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.companyPrimeContactLName}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-lname" placeholder='Last Name' required/>
                 <input 
-                onChange={(e)=>setCarrierObj({...carrierObj, companyPrimeContactTitle: e.target.value})}
-                value={carrierObj.companyPrimeContactTitle}
+                onChange={(e)=>setCarrierData({...carrierData[carrierCount].carrierObj, companyPrimeContactTitle: e.target.value})}
+                value={carrierData[carrierCount].carrierObj.companyPrimeContactTitle}
                 maxLength="120" autoComplete="off" type="text" name="carrier-contact-title" placeholder='Title' required/>
             </div>
         
             <div className="inputSection" >
-                <p>{carrierObj.carrierName? `${carrierObj.carrierName} `:'Carrier' }  Rates</p>
+                <p>{carrierData[carrierCount].carrierObj.carrierName? `${carrierData[carrierCount].carrierObj.carrierName} `:'Carrier' }  Rates</p>
                 <input
-                    onChange={((e)=>setCarrierObj({...carrierObj, carrierRates: e.target.files}))}
+                    onChange={((e)=>setCarrierData({...carrierData[carrierCount].carrierObj, carrierRates: e.target.files}))}
                     type="file" id="myFile" name="filename">    
                 </input>
             </div>
