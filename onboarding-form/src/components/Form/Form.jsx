@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useContext} from "react"
 import { FormContext } from '../../Contexts/FormContext'
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'
@@ -22,16 +22,14 @@ const Form = () => {
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
       setCarrierCount(carrierCount + 1)   
-      const data = Object.entries(carrierData)  
-      // setCarrierData({...carrierData, carrierNum:2}) 
-      console.log(carrierData[carrierCount])
-      console.log(carrierData.length)
+       
+      
   
   }
  
   const isFinishedHandler = function(){
     
-    console.log("hello from finished handler")
+  
   
   }
 
