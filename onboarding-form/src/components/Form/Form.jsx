@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useContext} from "react"
 import { FormContext } from '../../Contexts/FormContext'
-import { Link, redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import GroupInfoForm from './GroupInfoForm'
 import CarrierInfoForm from './CarrierInfoForm'

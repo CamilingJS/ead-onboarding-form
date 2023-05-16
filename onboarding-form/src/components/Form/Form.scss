@@ -1,6 +1,7 @@
 .form-container{
     display: flex;
     justify-content: center;
+    
  
 
     @media screen and (min-width: 1110px) {
@@ -126,10 +127,10 @@
 
         button{
             min-width: 200px;
-            height: 32px;
+            height: 3em;
             border-radius: 4px;
             background-color: #313131;
-            margin: 16px 2px;
+            margin: 4em; 
             color: white;
             display: flex;
             align-items: center;
