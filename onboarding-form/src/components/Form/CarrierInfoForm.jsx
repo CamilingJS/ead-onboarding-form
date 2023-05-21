@@ -2,19 +2,41 @@ import React from 'react'
 import { useContext } from 'react'
 import { FormContext } from '../../Contexts/FormContext'
 
+
+const baseCarrierObj = {
+    carrierNum: 0, 
+    carrierName: "",
+    carrierPolicyNumber:"",
+    benefitCategory:"",
+    numberOfBills: 0,
+    billTypes:"",
+    selfInsuredFunded:"",
+    eadPaysCarrier:"",
+    carrierContactFName:"",
+    carrierContactLName:"",
+    carrierContactEmail:"",
+    companyPrimeContactFName:"",
+    companyPrimeContactLName:"",
+    companyPrimeContactTitle:"",
+    carrierRates: null,
+  }
+
+
 function CarrierInfoForm({carrierCount}){
 const {carrierData, setCarrierData, companyData} = useContext(FormContext)
    
 return (
-    <form key={carrierCount} name="carrier-information" method="POST" data-netlify="true">
+    <form key={carrierCount} name="carrier-information">
         <h2>Carrier/Plan Information</h2> 
         <div className="inputContainer" >
             <div className="inputSection" >
                 <p>Carrier</p>
                 
                 <input 
+                    onChange={(e)=>setCarrierData({...baseCarrierObj, carrierName:e.target.value})}
                     // onChange={(e)=>setCarrierData({...carrierData[carrierCount], carrierName: e.target.value})}  
                     // value={carrierData[carrierCount].carrierName}
+                    value={baseCarrierObj.carrierName}
                     maxLength="120" 
                     autoComplete="off" 
                     type="text" 

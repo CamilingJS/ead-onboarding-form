@@ -20,15 +20,18 @@ const Form = () => {
   }
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
-      setCarrierCount(carrierCount + 1)   
+      setCarrierCount(carrierCount + 1)  
+      {carrierCount>1 && carrierData.push({carrierData})} 
+      
   }
  
   const isFinishedHandler = function(){
   
   }
 
-  let carrierComponents = carrierData.map( (carrier, index) =>(
+  let carrierComponents = carrierData.map( (carrier, carrierCount) =>(
     <CarrierInfoForm 
+      key={carrierCount}
       page={page}
       carrierCount={carrierCount}
       carrier={carrier}
