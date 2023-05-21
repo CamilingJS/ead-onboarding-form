@@ -44,7 +44,7 @@ function App() {
 
 
   const [carrierData, setCarrierData] = useState([{
-    ...baseCarrierObj
+    ...baseCarrierObj,
   }])
 
 return (

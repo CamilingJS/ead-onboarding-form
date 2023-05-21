@@ -15,21 +15,15 @@ const Form = () => {
   const [carrierCount, setCarrierCount] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   
-  
   const prevBtnHandler = function (){
     setCarrierCount(carrierCount-1)
   }
   const nextBtnHandler = function(){ 
       setPage(page + 1) 
       setCarrierCount(carrierCount + 1)   
-       
-      
-  
   }
  
   const isFinishedHandler = function(){
-    
-  
   
   }
 

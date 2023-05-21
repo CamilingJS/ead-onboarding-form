@@ -11,6 +11,7 @@ return (
         <div className="inputContainer" >
             <div className="inputSection" >
                 <p>Carrier</p>
+                
                 <input 
                     // onChange={(e)=>setCarrierData({...carrierData[carrierCount], carrierName: e.target.value})}  
                     // value={carrierData[carrierCount].carrierName}
